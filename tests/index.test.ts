@@ -1,5 +1,5 @@
 import { expect, test } from "vitest";
-import { normalizeEmail } from "../src";
+import { normalizeEmail } from "../src/index.js";
 
 test.each([
 	["john.doe+github@fastmail.com", "john.doe@fastmail.com"],

@@ -5,4 +5,8 @@ export default defineBuildConfig({
 	declaration: "compatible",
 	sourcemap: true,
 	clean: true,
+    outDir: "dist",
+    rollup: {
+        emitCJS: true,
+    }
 });
