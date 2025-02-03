@@ -52,8 +52,8 @@ function processProton(username: string, domain: string): string {
 	if (usernameWithoutSubaddressing > -1) {
 		return `${username
 			.toLowerCase()
-			.replace(/[._-]/g, "")
-			.substring(0, usernameWithoutSubaddressing)}@${domain}`;
+			.substring(0, usernameWithoutSubaddressing)
+			.replace(/[._-]/g, "")}@${domain}`;
 	}
 
 	return `${username.toLowerCase().replace(/[._-]/g, "")}@${domain}`;
@@ -332,11 +332,14 @@ export async function normalizeEmail(
 						case "google.com":
 							return processGoogle(username, domain, true);
 						case "outlook.com":
+						case "office365.us":
 							return processMicrosoft(username, domain);
 						case "purelymail.com":
 							return processPurelymail(username, domain);
 						case "protonmail.ch":
 							return processProton(username, domain);
+						case "messagingengine.com":
+							return processFastmail(username, domain);
 					}
 				}
 			}
